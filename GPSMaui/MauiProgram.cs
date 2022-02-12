@@ -1,4 +1,7 @@
-﻿namespace GPSMaui;
+﻿using GPSMaui.Services.Impl;
+using GPSMaui.Services.Interfaces;
+
+namespace GPSMaui;
 
 public static class MauiProgram
 {
@@ -11,6 +14,9 @@ public static class MauiProgram
 			{
 				fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
 			});
+
+		builder.Services.AddSingleton<ILocationTrackingService, LocationTrackingService>();
+		builder.Services.AddSingleton<MainPage>();
 
 		return builder.Build();
 	}

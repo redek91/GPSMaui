@@ -1,0 +1,31 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="GPSMaui.MainPage"
+             BackgroundColor="{DynamicResource SecondaryColor}">
+
+    <ScrollView>
+        <Grid RowSpacing="25" RowDefinitions="Auto,Auto,Auto,Auto,*"
+              Padding="{OnPlatform iOS='30,60,30,30', Default='30'}">
+
+            <Label 
+                Text="Hello, World!"
+                Grid.Row="0"
+                SemanticProperties.HeadingLevel="Level1"
+                FontSize="32"
+                HorizontalOptions="Center" />
+            <Button 
+                Text="Click me"
+                FontAttributes="Bold"
+                Grid.Row="3"
+                SemanticProperties.Hint="Retrieves the current location"
+                Clicked="OnClicked"
+                HorizontalOptions="Center" />
+            <Label
+                x:Name="Geolocation"
+                Grid.Row="2"
+                FontSize="18"
+                HorizontalOptions="Center"/>
+
+        </Grid>
+    </ScrollView>
+</ContentPage>

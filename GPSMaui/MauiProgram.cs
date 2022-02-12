@@ -12,8 +12,6 @@ public static class MauiProgram
 				fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
 			});
 
-		//builder.Services.AddSingleton<ILocationTrackingService, LocationTrackingService>();
-
 		return builder.Build();
 	}
 }

@@ -6,31 +6,28 @@
     <ScrollView>
         <Grid RowSpacing="25" RowDefinitions="Auto,Auto,Auto,Auto,*"
               Padding="{OnPlatform iOS='30,60,30,30', Default='30'}">
-
             <Label 
                 Text="Location tracker"
                 Grid.Row="0"
                 SemanticProperties.HeadingLevel="Level1"
                 FontSize="32"
                 HorizontalOptions="Center" />
-            <Button 
-                Text="Start"
-                FontAttributes="Bold"
+            <StackLayout
                 Grid.Row="1"
-                SemanticProperties.Hint="Starts location service"
-                Clicked="OnClickedStart"
-                HorizontalOptions="Center" />
-            <Button 
-                Text="Stop"
-                FontAttributes="Bold"
-                Grid.Row="2"
-                SemanticProperties.Hint="Stops location service"
-                Clicked="OnClickedStop"
-                HorizontalOptions="Center" />
+                Orientation="Horizontal"
+                HorizontalOptions="CenterAndExpand">
+                <Label
+                    Margin="0 20 0 0"
+                    FontSize="20"
+                    Text="Enable location updates"/>
+                <Switch
+                    SemanticProperties.Hint="Toggles location updates"
+                    Toggled="Switch_Toggled"/>
+            </StackLayout>
             <Label
                 x:Name="Geolocation"
                 Grid.Row="3"
-                FontSize="18"
+                FontSize="30"
                 HorizontalOptions="Center"/>
 
         </Grid>

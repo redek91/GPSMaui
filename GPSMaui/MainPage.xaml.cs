@@ -14,21 +14,24 @@ public partial class MainPage : ContentPage
 		_locationTrackingService.LocationUpdated += UpdateLocationLabel;
     }
 
-	private void OnClickedStart(object sender, EventArgs e)
-	{
-		_locationTrackingService.StartTracking();
-	}
-
-	private void OnClickedStop(object sender, EventArgs e)
-    {
-		_locationTrackingService.StopTracking();
-    }
-
 	private void UpdateLocationLabel(Location location)
     {
 		Geolocation.Text = $"Lat:{location.Latitude}, Lon:{location.Longitude}";
-
+        System.Diagnostics.Debug.WriteLine("Location was updated!");
 		SemanticScreenReader.Announce(Geolocation.Text);
 	}
+
+    private void Switch_Toggled(object sender, ToggledEventArgs e)
+    {
+        if (e.Value)
+        {
+            _locationTrackingService?.StartTracking();
+        }
+        else
+        {
+            _locationTrackingService?.StopTracking();
+        }
+
+    }
 }
 
